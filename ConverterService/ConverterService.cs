@@ -2,14 +2,7 @@
 {
     public class ConverterService
     {
-        public bool IsPrime(int candidate)
-        {
-            if (candidate == 1)
-            {
-                return false;
-            }
-            throw new NotImplementedException("Please create a test first.");
-        }
+        
         public int ConvertRomanToInt(string s)
         {
             int sum = 0;
