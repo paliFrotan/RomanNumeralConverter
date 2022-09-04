@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterService", "ConverterService\ConverterService.csproj", "{3E993F01-E51F-4DAD-8335-EC4976E20C4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterService.Tests", "ConverterService.Tests\ConverterService.Tests.csproj", "{D45E863D-F131-40CB-8010-1977E922E76A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E993F01-E51F-4DAD-8335-EC4976E20C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E993F01-E51F-4DAD-8335-EC4976E20C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E993F01-E51F-4DAD-8335-EC4976E20C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E993F01-E51F-4DAD-8335-EC4976E20C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45E863D-F131-40CB-8010-1977E922E76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45E863D-F131-40CB-8010-1977E922E76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45E863D-F131-40CB-8010-1977E922E76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45E863D-F131-40CB-8010-1977E922E76A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
