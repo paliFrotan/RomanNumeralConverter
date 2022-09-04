@@ -14,13 +14,13 @@ namespace Converter.UnitTests.Services
         }
 
         [Test]
-        public void IsRomanNumeral()
+        public void IsRomanNumeralcorrectsum()
         {
-            //var number = _primeService.ConvertRomanToInt("I");
-
-            //Assert.That(number,Is.EqualTo(1));
-            // string romanNumeral = "I";
             _converterService.ConvertRomanToInt("I").Should().Be(1);
+            _converterService.ConvertRomanToInt(null).Should().Be(0);
+            _converterService.ConvertRomanToInt("III").Should().Be(3);
+
         }
+
     }
 }
