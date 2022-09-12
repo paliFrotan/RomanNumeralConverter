@@ -2,49 +2,46 @@
 {
     public class ConvertNumberToRomanNumeral
     {
+        Rule[] Rules = new Rule[]
+        {
+            new Rule(1000, "M"),
+            new Rule(900, "CM"),
+            new Rule(500, "D"),
+            new Rule(400, "CD"),
+            new Rule(100, "C"),
+            new Rule(90, "XC"),
+            new Rule(50, "L"),
+            new Rule(40, "XL"),
+            new Rule(10, "X"),
+            new Rule(9, "IX"),
+            new Rule(5, "V"),
+            new Rule(4, "IV"),
+            new Rule(1, "I"),
+        };
 
         public string ConvertIntToRoman(int number)
         {
-            if (number <= 0  || number > 4000) { return null; }
-             
-            string RomanNumerals = "";
+                if (number == 0 || number > 4000) return ""; // Recursion termination
 
-            for (int i = 0; i < number / 1000; i++)
-            {
-                RomanNumerals += "M";
-            };
-           
-            for(int i = 0; i < 3; i++)
-            {
-                RomanNumerals += NumberDivision(100/((int)Math.Pow(10, i)), number, RomanNumerals);
+                foreach (var rule in Rules) // Rules are in descending order
+                    if (rule.N <= number)
+                        return rule.Symbol + ConvertIntToRoman(number - rule.N);  
+
+                // If this line is reached then n < 0
+                throw new ArgumentOutOfRangeException("n must be greater than or equal to 0");
             }
 
-            return RomanNumerals;
-        }
-
-        public string NumberDivision(int units, int number, string output)
+        
+        class Rule
         {
-            Dictionary<int, string> romanNumbersDictionary = new()
-                {
-                    { 100,"C"}, { 200,"CC"}, { 300,"CCC"},{ 400,"CD"}, {500,"D" },{600, "DC" }, {700,"DCC" }, {800, "DCCC" }, {900,"CM" },
-                    { 10,"X"}, { 20,"XX"}, { 30,"XXX"},{ 40,"XL"}, {50,"L" },{60, "LX" }, {70,"LXX" }, {80, "LXXX" }, {90,"XC" },
-                    { 0,""},{ 1,"I"}, { 2,"II"}, { 3,"III"},{ 4,"IV"}, {5,"V" },{6, "VI" }, {7,"VII" }, {8, "VIII" }, {9,"IX" }
-
-                };
-            int unitsIndex;
-            if (units == 1)
+            public int N { get; set; }
+            public string Symbol { get; set; }
+            public Rule(int n, string symbol)
             {
-                unitsIndex = (number % 10);
+                N = n;
+                Symbol = symbol;
             }
-            else
-            { 
-                units *= 10;
-                unitsIndex = (number / units);
-                unitsIndex %= units / 10;
-            } 
-            return output += romanNumbersDictionary[unitsIndex];
         }
-
     }
 
 }
