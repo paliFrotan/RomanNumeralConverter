@@ -9,23 +9,28 @@
              
             string RomanNumerals = "";
 
-            string[] hundreds = new string[] { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
-            string[] tens = new string[] { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-            string[] ones = new string[] { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-
             for (int i = 0; i < number / 1000; i++)
             {
                 RomanNumerals += "M";
             };
            
-            RomanNumerals += NumberDivision(100, number, hundreds, RomanNumerals);
-            RomanNumerals += NumberDivision(10, number, tens, RomanNumerals);
-            RomanNumerals += NumberDivision(1, number, ones, RomanNumerals);
+            for(int i = 0; i < 3; i++)
+            {
+                RomanNumerals += NumberDivision(100/((int)Math.Pow(10, i)), number, RomanNumerals);
+            }
 
             return RomanNumerals;
         }
-        public string NumberDivision(int units, int number, string[] unitsArray, string output)
+
+        public string NumberDivision(int units, int number, string output)
         {
+            Dictionary<int, string> romanNumbersDictionary = new()
+                {
+                    { 100,"C"}, { 200,"CC"}, { 300,"CCC"},{ 400,"CD"}, {500,"D" },{600, "DC" }, {700,"DCC" }, {800, "DCCC" }, {900,"CM" },
+                    { 10,"X"}, { 20,"XX"}, { 30,"XXX"},{ 40,"XL"}, {50,"L" },{66, "LX" }, {70,"LXX" }, {80, "LXXX" }, {90,"XC" },
+                    { 0,""},{ 1,"I"}, { 2,"II"}, { 3,"III"},{ 4,"IV"}, {5,"V" },{6, "VI" }, {7,"VII" }, {8, "VIII" }, {9,"IX" }
+
+                };
             int unitsIndex;
             if (units == 1)
             {
@@ -37,7 +42,7 @@
                 unitsIndex = (number / units);
                 unitsIndex %= units / 10;
             } 
-            return output += unitsArray[unitsIndex];
+            return output += romanNumbersDictionary[unitsIndex];
         }
 
     }
